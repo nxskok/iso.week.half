@@ -37,3 +37,36 @@ iso_week_half(as.Date("2020-07-02"))
 ```
 
 in 2020, July 2 was in a different half-week because it was on a Thursday.
+
+## `base_year`
+
+By default, the base year is 2020. If you have dates from other years, the week numbers will look funny. Set the base year accordingly if that bothers you:
+
+```{r}
+iso_week_half(as.Date("2019-07-03"))
+iso_week_half(as.Date("2021-07-02"))
+```
+
+and then
+
+```{r}
+iso_week_half(as.Date("2019-07-03"), 2019)
+iso_week_half(as.Date("2021-07-02"), 2021)
+```
+
+The advantage to doing it this way is that the week numbers from different years will order properly:
+
+```{r}
+iso_week_half(as.Date("2017-09-03"), 2019)
+iso_week_half(as.Date("2018-07-02"), 2021)
+iso_week_half(as.Date("2019-05-03"), 2019)
+iso_week_half(as.Date("2020-04-12"), 2021)
+```
+
+## Vectors
+
+```{r}
+dates <- seq(Sys.Date(), by = -1, length.out = 10)
+tibble::tibble(date=dates, dow=lubridate::wday(dates, label=TRUE), week=iso_week_half(dates))
+```
+

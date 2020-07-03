@@ -10,7 +10,7 @@
 #' iso_week_half(as.Date("2020-07-02"))
 #'
 #' @export
-iso_week_half <- function(date, base_year=2019) {
+iso_week_half <- function(date, base_year=2020) {
   iw <- lubridate::isoweek(date-lubridate::days(1))
   dow <- lubridate::wday(date, label=T)
   ym <- lubridate::year(date)-base_year
