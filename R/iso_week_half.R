@@ -3,12 +3,12 @@
 #' @param date a date
 #'
 #' @return a (double) week number, with extra half if Tuesday, Wednesday or Thursday
-#' @export
 #'
 #' @examples
 #' iso_week_half(as.Date("2020-07-03"))
 #' iso_week_half(as.Date("2020-07-02"))
 #'
+#' @export
 iso_week_half=function(date) {
   iw=isoweek(date-days(1))
   dow=wday(date, label=T)
