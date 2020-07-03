@@ -18,37 +18,22 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of iso.week.half is to ...
+The goal of iso.week.half is to obtain a week number for a date, with an additional 0.5 for a date on Tuesday, Wednesday or Thursday.
 
 ## Installation
 
-You can install the released version of iso.week.half from [CRAN](https://CRAN.R-project.org) with:
+From Github:
 
 ``` r
-install.packages("iso.week.half")
+devtools::install_github("nxskok/iso.week.half")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
 library(iso.week.half)
-## basic example code
+iso_week_half(as.Date("2020-07-03"))
+iso_week_half(as.Date("2020-07-02"))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+in 2020, July 2 was in a different half-week because it was on a Thursday.
