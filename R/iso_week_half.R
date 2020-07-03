@@ -12,7 +12,8 @@
 iso_week_half <- function(date) {
   iw <- lubridate::isoweek(date-lubridate::days(1))
   dow <- lubridate::wday(date, label=T)
-  ym <- lubridate::year(date)-2019
+  # ym <- lubridate::year(date)-2019
   iw <- ifelse(dow %in% c("Tue", "Wed", "Thu"), iw-0.5, iw)
-  iw+ym*53
+  # iw+ym*53
+  iw
 }
